@@ -18,6 +18,7 @@ export const Button = styled.button`
   font-variant-caps: small-caps;
   font-family: monospace;
   font-weight: 900;
+  cursor: pointer;
 `
 
 export const ButtonRock = styled(Button)`

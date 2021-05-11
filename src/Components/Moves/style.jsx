@@ -9,3 +9,10 @@ export const ContainerMoves = styled.div`
 export const CardPlayerMove = styled.div` 
     margin: 30px;
 `
+
+export const MovesImg = styled.img`
+    height: 200px;
+`
+export const MovesImgRotate = styled(MovesImg)`
+  transform:  rotateY(180deg)
+`

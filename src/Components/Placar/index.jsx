@@ -1,18 +1,24 @@
 import React from 'react';
-import {ContainerPlacar, CardPlayer} from "./style";
+import {ContainerPlacar, ContainerCards,CardPlayer} from "./style";
 
 
-const Placar = () => {
+const Placar = (props) => {
+
+    const {quantityPlay, quantityCpu} = props;
+
     return (
         <ContainerPlacar>
-            <CardPlayer>
-                <h2>Jogador</h2>
-                <h3>Pontuação</h3>
-            </CardPlayer>
-            <CardPlayer>
-                <h2>Máquina</h2>
-                <h3>Pontuação</h3>
-            </CardPlayer>
+            <h2>Placar</h2>
+            <ContainerCards>
+                <CardPlayer>
+                    <h2>Jogador</h2>
+                    <h3>{quantityPlay}</h3>
+                </CardPlayer>
+                <CardPlayer>
+                    <h2>Máquina</h2>
+                    <h3>{quantityCpu}</h3>
+                </CardPlayer>
+            </ContainerCards>
         </ContainerPlacar>
     );
 };
