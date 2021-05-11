@@ -4,9 +4,9 @@ import {ContainerButtons, ButtonRock, ButtonPaper, ButtonScissors} from "./style
 const Buttons = () => {
     return (
         <ContainerButtons>
-            <ButtonRock>Papel</ButtonRock>
-            <ButtonPaper>Pedra</ButtonPaper>
-            <ButtonScissors>Tesoura</ButtonScissors>
+            <ButtonRock>Rock</ButtonRock>
+            <ButtonPaper>Paper</ButtonPaper>
+            <ButtonScissors>Scissors</ButtonScissors>
         </ContainerButtons>
     );
 };
