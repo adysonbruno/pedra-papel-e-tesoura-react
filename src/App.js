@@ -15,6 +15,8 @@ const App = () => {
     const [quantityPlay, setupQuantityPlay] = useState(0)
     const [quantityCpu, setupQuantityCpu] = useState(0)
 
+    const [gameOver, setupGameOver] = useState(true)
+
     useEffect(() => {
         let result = gamePlay(playerPlay,cpuPlay)
         setupEndGame(result)
@@ -23,6 +25,14 @@ const App = () => {
         }else if(result === "Você Perdeu"){
             increaseCpuQuantity()
         }
+        if(quantityPlay===10){
+            setupEndGame("Player Ganhou!!")
+            switchGameOver()
+        }else if(quantityCpu===10){
+            setupEndGame("Máquina Ganhou!!")
+            switchGameOver()
+        }
+
     }, [playerPlay, cpuPlay]);
 
     const randomCpuPlay = () =>{
@@ -63,30 +73,47 @@ const App = () => {
         setupQuantityCpu(quantityCpu + 1)
     }
 
-    return (
+    const switchGameOver = () => {
+        if(gameOver===true){
+           setupGameOver(false)
+        }else{
+           setupGameOver(true)
+        }
+    }
 
+    return (
     <div className="App">
-        <h1>Rock, Paper or Scissors?</h1>
-        <Placar
-            quantityPlay={quantityPlay}
-            quantityCpu={quantityCpu}
-        />
-        <Moves
-            playerPlay={playerPlay}
-            cpuPlay={cpuPlay}
-        />
-        <Buttons
-            playerPlay={playerPlay}
-            cpuPlay={cpuPlay}
-            setupPlayerPLay={setupPlayerPLay}
-            setupCpuPlay={setupCpuPlay}
-            randomCpuPlay={randomCpuPlay}
-            setupEndGame={setupEndGame}
-            gamePlay={gamePlay}
-        />
-        <GameResults
-            endGame={endGame}
-        />
+        {
+            (gameOver)? (
+                <div>
+                    <h1>Rock, Paper or Scissors?</h1>
+                    <Placar
+                        quantityPlay={quantityPlay}
+                        quantityCpu={quantityCpu}
+                    />
+                    <Moves
+                        playerPlay={playerPlay}
+                        cpuPlay={cpuPlay}
+                    />
+                    <Buttons
+                        playerPlay={playerPlay}
+                        cpuPlay={cpuPlay}
+                        setupPlayerPLay={setupPlayerPLay}
+                        setupCpuPlay={setupCpuPlay}
+                        randomCpuPlay={randomCpuPlay}
+                        setupEndGame={setupEndGame}
+                        gamePlay={gamePlay}
+                    />
+                </div> ):
+                <GameResults
+                    setupPlayerPLay={setupPlayerPLay}
+                    setupCpuPlay={setupCpuPlay}
+                    setupQuantityPlay={setupQuantityPlay}
+                    setupQuantityCpu={setupQuantityCpu}
+                    endGame={endGame}
+                    switchGameOver={switchGameOver}
+                />
+        }
     </div>
   );
 }

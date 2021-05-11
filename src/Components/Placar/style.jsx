@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const ContainerPlacar = styled.div`
-  width: 60%;
   display: flex;
   flex-direction: column;
   align-items: center;

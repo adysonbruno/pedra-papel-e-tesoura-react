@@ -1,7 +1,6 @@
 import React from 'react';
 import {ContainerPlacar, ContainerCards,CardPlayer} from "./style";
 
-
 const Placar = (props) => {
 
     const {quantityPlay, quantityCpu} = props;
